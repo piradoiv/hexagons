@@ -11,6 +11,7 @@ Class=GridHex;HexagonalGridLibrary/GridHex.xojo_code;&h0000000020057FFF;&h000000
 Class=GridOffsetCoord;HexagonalGridLibrary/GridOffsetCoord.xojo_code;&h000000002BB6E7FF;&h0000000046C20FFF;false
 Class=GridDoubledCoord;HexagonalGridLibrary/GridDoubledCoord.xojo_code;&h000000002411AFFF;&h0000000046C20FFF;false
 Class=GridOrientation;HexagonalGridLibrary/GridOrientation.xojo_code;&h0000000048F597FF;&h0000000046C20FFF;false
+Class=GridLayout;HexagonalGridLibrary/GridLayout.xojo_code;&h0000000018F83FFF;&h0000000046C20FFF;false
 DefaultWindow=Window1
 AppMenuBar=MainMenuBar
 MajorVersion=1
