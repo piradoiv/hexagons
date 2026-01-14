@@ -1,7 +1,7 @@
 #tag Class
 Protected Class GridOrientation
 	#tag Method, Flags = &h0
-		Sub Constructor(b0 As Integer, b1 As Integer, b2 As Integer, b3 As Integer, f0 As Integer, f1 As Integer, f2 As Integer, f3 As Integer, startAngle As Integer)
+		Sub Constructor(b0 As Double, b1 As Double, b2 As Double, b3 As Double, f0 As Double, f1 As Double, f2 As Double, f3 As Double, startAngle As Double)
 		  Self.B0 = b0
 		  Self.B1 = b1
 		  Self.B2 = b2
@@ -16,39 +16,39 @@ Protected Class GridOrientation
 
 
 	#tag Property, Flags = &h0
-		B0 As Integer
+		B0 As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		B1 As Integer
+		B1 As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		B2 As Integer
+		B2 As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		B3 As Integer
+		B3 As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		F0 As Integer
+		F0 As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		F1 As Integer
+		F1 As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		F2 As Integer
+		F2 As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		F3 As Integer
+		F3 As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		StartAngle As Integer
+		StartAngle As Double
 	#tag EndProperty
 
 

@@ -25,52 +25,78 @@ Begin DesktopWindow Window1
    Type            =   0
    Visible         =   True
    Width           =   600
-   Begin DesktopButton Button1
+   Begin DesktopCanvas Canvas1
       AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Button"
-      Default         =   False
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
       Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
+      Height          =   400
       Index           =   -2147483648
-      Italic          =   False
-      Left            =   78
-      LockBottom      =   False
+      Left            =   0
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
-      MacButtonStyle  =   0
       Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   49
+      Top             =   0
       Transparent     =   False
-      Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   600
    End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Opening()
+		  Var origin As New GridHex(0, 0, 0)
+		  mMap.Add(origin)
+		  
+		  For i As Integer = 0 To 5
+		    mMap.Add(origin.Neighbor(i))
+		  Next
+		  
+		  mHexagonalGrid = New GridLayout(GridLayout.Orientations.Flat, New Point(30, 30), New Point(Self.Width / 2, Self.Height / 2))
+		End Sub
+	#tag EndEvent
+
+
+	#tag Property, Flags = &h21
+		Private mHexagonalGrid As GridLayout
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mMap() As GridHex
+	#tag EndProperty
+
+
 #tag EndWindowCode
 
-#tag Events Button1
+#tag Events Canvas1
 	#tag Event
-		Sub Pressed()
-		  Var wop As New GridHex(1, -1, 0)
+		Sub Paint(g As Graphics, areas() As Rect)
+		  g.DrawingColor = Color.Red
+		  g.DrawRectangle(g.Width / 2 - 5, g.Height / 2 - 5, 10, 10)
 		  
-		  Var wep As GridHex = wop * 3
-		  wep = wop.Neighbor(1)
+		  For Each h As GridHex In mMap
+		    Var corners() As Point = mHexagonalGrid.PolygonCorners(h)
+		    
+		    Var hexagon As New GraphicsPath
+		    hexagon.MoveToPoint(corners(0).X, corners(0).Y)
+		    For i As Integer = 0 To 5
+		      hexagon.AddLineToPoint(corners(i).X, corners(i).Y)
+		    Next
+		    
+		    g.DrawPath(hexagon, True)
+		  Next
 		  
-		  Break
 		End Sub
 	#tag EndEvent
 #tag EndEvents
